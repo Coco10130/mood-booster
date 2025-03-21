@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mood Booster</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <script
+      src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
+      type="module"
+    ></script>
+  </head>
+  <body>
+    <!-- Loading Overlay -->
+    <div id="loading" class="loading-container">
+      <dotlottie-player
+        src="https://lottie.host/d20c355c-e784-4f82-9865-99a3375e82d2/bw9KEXt4jq.lottie"
+        background="transparent"
+        speed="1"
+        style="width: 150px; height: 150px"
+        loop
+        autoplay
+      >
+      </dotlottie-player>
+    </div>
+
+    <div class="container">
+      <div class="title-box">
+        <h1>Mood Booster</h1>
+        <p class="subtitle">Your daily dose of happiness!</p>
+      </div>
+
+      <nav class="navbar">
+        <button id="moodBooster">Mood Booster</button>
+        <button id="theme-toggle">Dark Mode</button>
+      </nav>
+
+      <!-- Cat Facts Section -->
+      <div class="api-section">
+        <h2>Cat Facts</h2>
+
+        <p class="section-description">
+          Tap the button to discover fascinating cat facts!
+        </p>
+
+        <div class="input-row">
+          <label for="catFactLength">Number of facts:</label>
+          <input
+            type="number"
+            id="catFactLength"
+            name="catFactLength"
+            min="20"
+            max="100"
+            style="width: 60px; margin-left: 10px"
+          />
+        </div>
+
+        <div class="content-row" id="catFactsContainer">
+          <div class="skeleton-container">
+            <dotlottie-player
+              src="https://lottie.host/10bb2221-ae3f-4a95-908e-911b73bed944/1MlraNLIef.lottie"
+              background="transparent"
+              speed="1"
+              style="width: 100%; height: 200px"
+              loop
+              autoplay
+            >
+            </dotlottie-player>
+          </div>
+        </div>
+        <button class="fetch-button" id="getCatFacts">Get Cat Facts</button>
+      </div>
+
+      <!-- Dog Images Section -->
+      <div class="api-section">
+        <h2>Dog Images</h2>
+        <p class="section-description">Click to see adorable dog pictures!</p>
+        <div class="content-row" id="dogImagesContainer">
+          <div class="skeleton-container">
+            <dotlottie-player
+              src="https://lottie.host/10bb2221-ae3f-4a95-908e-911b73bed944/1MlraNLIef.lottie"
+              background="transparent"
+              speed="1"
+              style="width: 100%; height: 200px"
+              loop
+              autoplay
+            >
+            </dotlottie-player>
+          </div>
+        </div>
+        <button class="fetch-button" id="getDogImages">Get Dog Images</button>
+      </div>
+
+      <!-- Jokes Section -->
+      <div class="api-section">
+        <h2>Jokes</h2>
+        <p class="section-description">Press the button for a good laugh!</p>
+
+        <div>
+          <label
+            ><input type="radio" name="jokeCategory" value="Any" checked />
+            Any</label
+          >
+          <label
+            ><input type="radio" name="jokeCategory" value="Programming" />
+            Programming</label
+          >
+          <label
+            ><input type="radio" name="jokeCategory" value="Dark" /> Dark</label
+          >
+        </div>
+
+        <div class="content-row" id="jokesContainer">
+          <div class="skeleton-container">
+            <dotlottie-player
+              src="https://lottie.host/10bb2221-ae3f-4a95-908e-911b73bed944/1MlraNLIef.lottie"
+              background="transparent"
+              speed="1"
+              style="width: 100%; height: 200px"
+              loop
+              autoplay
+            >
+            </dotlottie-player>
+          </div>
+        </div>
+        <button class="fetch-button" id="getJokes">Get Jokes</button>
+      </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>
