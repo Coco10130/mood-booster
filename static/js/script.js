@@ -83,7 +83,13 @@ document.getElementById("getCatFacts").addEventListener("click", () => {
 });
 
 document.getElementById("getDogImages").addEventListener("click", () => {
-  fetchData("/api/dog/random", "dogImagesContainer", createDogImageContent);
+  const selectedBreed = document.getElementById("dogBreedSelect").value;
+
+  const url = selectedBreed
+    ? `/api/dog/random/${selectedBreed}`
+    : `/api/dog/random`;
+
+  fetchData(url, "dogImagesContainer", createDogImageContent);
 });
 
 document.getElementById("getJokes").addEventListener("click", () => {

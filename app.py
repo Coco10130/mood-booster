@@ -49,6 +49,16 @@ def random_dog_images():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+@app.route("/api/dog/random/<string:breed>", methods=["GET"])
+def random_dog_images_breed(breed):
+    try:
+        dog_images = []
+        for _ in range(3):
+            response = requests.get(f"https://dog.ceo/api/breed/{breed}/images/random")
+            dog_images.append(response.json())
+        return jsonify(dog_images)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 #! Random Jokes
 @app.route("/api/joke/random", methods=["GET"])
